@@ -7,21 +7,21 @@ also implements most of the EXSLT set of processor- portable extensions
 functions and some of Saxon's evaluate and expressions extensions.
 
 Runtime requirements:
-  cygwin-1.5.23-2
-  libgcrypt-1.2.1-1
-  libxml2-2.6.27-1
+  cygwin-1.5.24-2
+  libgcrypt11-1.2.4-1
+  libxml2-2.6.28-1
 
 The Python bindings also require:
-  pylibxml2-2.6.27-1
-  python-2.4.3-1
+  python-2.5.1-1
+  python-libxml2-2.6.28-2
 
 Build requirements:
 (besides corresponding devel packages)
-  cygwin-1.5.23-2
+  cygwin-1.5.24-2
   autoconf2.5-2.61-1
   automake1.9-1.9.6-2
   binutils-20060817-1
-  cygport-0.2.9-1
+  cygport-0.2.11-1
   gawk-3.1.5-4
   gcc-core-3.4.4-3
   make-3.81-1
@@ -49,12 +49,13 @@ This will create:
   /usr/src/libxslt-1.1.20-X.tar.bz2
   /usr/src/libxslt-devel-1.1.20-X.tar.bz2
   /usr/src/libxslt-doc-1.1.20-X.tar.bz2
-  /usr/src/pylibxslt-1.1.20-X.tar.bz2
+  /usr/src/python-libxslt-1.1.20-X.tar.bz2
 
 -------------------------------------------
 
-Files included in the binary package:
+Files included in the binary packages:
 
+(libxslt)
   /usr/bin/cygexslt-0.dll
   /usr/bin/cygxslt-1.dll
   /usr/bin/xsltproc.exe
@@ -71,14 +72,12 @@ Files included in the binary package:
   /usr/share/man/man3/libexslt.3.gz
   /usr/share/man/man3/libxslt.3.gz
 
-Files included in the python bindings package:
+(python-libxslt)
+  /usr/lib/python2.5/site-packages/libxslt.py
+  /usr/lib/python2.5/site-packages/libxsltmod.dll
+  /usr/lib/python2.5/site-packages/libxsltmod.la
 
-  /usr/lib/python2.4/site-packages/libxslt.py
-  /usr/lib/python2.4/site-packages/libxsltmod.dll
-  /usr/lib/python2.4/site-packages/libxsltmod.la
-
-Files included in the devel package:
-
+(libxslt-devel)
   /usr/bin/xslt-config
   /usr/include/libexslt/exslt.h
   /usr/include/libexslt/exsltconfig.h
@@ -112,8 +111,7 @@ Files included in the devel package:
   /usr/lib/xsltConf.sh
   /usr/share/aclocal/libxslt.m4
 
-Files included in the doc package:
-
+(libxslt-doc)
   /usr/share/doc/libxslt-1.1.20/html/API.html
   /usr/share/doc/libxslt-1.1.20/html/APIchunk0.html
   /usr/share/doc/libxslt-1.1.20/html/APIchunk1.html
@@ -211,6 +209,9 @@ Files included in the doc package:
 ------------------
 
 Port Notes:
+
+----- version 1.1.20-2 -----
+Rebuilt for python-2.5.
 
 ----- version 1.1.20-1 -----
 Version bump.

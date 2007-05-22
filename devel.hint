@@ -1,5 +1,5 @@
 category: Gnome Libs
-requires: cygwin libxml2-devel libgcrypt
+requires: cygwin libxml2-devel libgcrypt-devel
 sdesc: "The GNOME XSLT C library (development)"
 ldesc: "Libxslt is the XSLT C library developed for the Gnome project.
 XSLT itself is a an XML language to define transformation for XML.
