@@ -63,18 +63,3 @@
  
  all-local: libxslt.py
  
-@@ -38,12 +40,12 @@
- libxsltmod_la_SOURCES = libxslt.c types.c libxslt-py.c
- libxsltmod_la_LIBADD = $(mylibs) 
- 
-+python_PYTHON = libxslt.py
-+
- libxslt.py: $(srcdir)/libxsl.py $(srcdir)/libxsltclass.py
- 	cat $(srcdir)/libxsl.py $(srcdir)/libxsltclass.py > libxslt.py
- 
- install-data-local:
--	$(mkinstalldirs) $(DESTDIR)$(pythondir)
--	@INSTALL@ -m 0644 libxslt.py $(DESTDIR)$(pythondir)
- 	$(mkinstalldirs) $(DESTDIR)$(DOCS_DIR)
- 	@(for doc in $(DOCS) ; \
- 	   do @INSTALL@ -m 0644 $(srcdir)/$$doc $(DESTDIR)$(DOCS_DIR) ; done)

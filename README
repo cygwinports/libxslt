@@ -19,7 +19,7 @@ Build requirements:
 (besides corresponding devel packages)
   autoconf2.5-2.61-1
   automake1.10-1.10.1-1
-  binutils-20060817-1
+  binutils-20080523-2
   cygport-0.3.12-1
   gawk-3.1.6-1
   gcc-core-3.4.4-3
@@ -210,6 +210,9 @@ Files included in the binary packages:
 ------------------
 
 Port Notes:
+
+----- version 1.1.24-2 -----
+Gentoo patch for CVE-2008-2935.
 
 ----- version 1.1.24-1 -----
 Version bump for CVE-2008-1767.
