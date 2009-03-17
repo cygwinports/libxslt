@@ -1,5 +1,5 @@
 category: Doc Libs Text Interpreters Gnome
-requires: cygwin libxml2 libgcrypt11
+requires: cygwin libgcc1 libxml2 libgcrypt11
 sdesc: "The GNOME XSLT C library (runtime)"
 ldesc: "Libxslt is the XSLT C library developed for the Gnome project.
 XSLT itself is a an XML language to define transformation for XML.

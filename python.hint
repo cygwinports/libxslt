@@ -1,5 +1,5 @@
 category: Gnome Python Libs
-requires: cygwin libxslt python python-libxml2
+requires: cygwin libgcc1 libxslt python python-libxml2
 external-source: libxslt
 sdesc: "The GNOME XSLT C library (Python bindings)"
 ldesc: "Libxslt is the XSLT C library developed for the Gnome project.
