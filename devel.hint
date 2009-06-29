@@ -1,5 +1,5 @@
 category: Gnome Libs
-requires: cygwin libxslt libxml2-devel libgcrypt-devel
+requires: libxslt libxml2-devel libgcrypt-devel
 external-source: libxslt
 sdesc: "The GNOME XSLT C library (development)"
 ldesc: "Libxslt is the XSLT C library developed for the Gnome project.
