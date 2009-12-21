@@ -4,11 +4,9 @@ DESCRIPTION="GNOME XSLT library"
 HOMEPAGE="http://xmlsoft.org/XSLT/"
 SRC_URI="ftp://xmlsoft.org/libxml2/${P}.tar.gz"
 PATCH_URI="
-	mirror://portage/dev-libs/${PN}/files/libxslt.m4-${PN}-1.1.8.patch
+	mirror://portage/dev-libs/${PN}/files/libxslt.m4-${PN}-1.1.26.patch
 	mirror://portage/dev-libs/${PN}/files/${PN}-1.1.23-parallel-install.patch
-	mirror://portage/dev-libs/${PN}/files/${P}-exslt_crypt.patch
-	1.1.24-no-undefined.patch
-	1.1.24-doc-install.patch
+	1.1.26-no-undefined.patch
 "
 
 PKG_NAMES="${PN} ${PN}-devel ${PN}-doc python-${PN}"
@@ -22,7 +20,13 @@ python_libxslt_CONTENTS="${PYTHON_SITELIB#/} usr/share/doc/python-${PN}/"
 
 DIFF_EXCLUDES='libxslt-export.c libxslt-py.* libxsltclass.* *xsltconfig.h'
 
-CYGCONF_ARGS="--with-debugger --with-python --with-crypto"
+CYGCONF_ARGS="
+	--with-crypto
+	--with-debugger
+	--with-html-dir=/usr/share/doc/${PN}
+	--with-html-subdir=html
+	--with-python
+"
 
 src_install() {
 	cd ${B}
@@ -30,6 +34,7 @@ src_install() {
 
 	mv ${D}${PYTHON_SITELIB}/${PN/lib/cyg}mod.dll ${D}${PYTHON_SITELIB}/${PN}mod.dll
 	sed -i -e "s:${PN/lib/cyg}mod:${PN}mod:g" ${D}${PYTHON_SITELIB}/${PN}mod.la
-
 	python_optimize
+
+	mv ${D}/usr/share/doc/libxslt-python-${PV} ${D}/usr/share/doc/python-libxslt
 }
