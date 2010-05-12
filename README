@@ -7,27 +7,27 @@ also implements most of the EXSLT set of processor- portable extensions
 functions and some of Saxon's evaluate and expressions extensions.
 
 Runtime requirements:
-  cygwin-1.7.0-67
+  cygwin-1.7.5-1
   libgcc1-4.3.4-3
-  libgcrypt11-1.4.1-4
-  libxml2-2.7.6-1
+  libgcrypt11-1.4.5-1
+  libxml2-2.7.7-1
 
 The Python bindings also require:
-  python-2.5.4-10
-  python-libxml2-2.7.6-1
+  python-2.6.5-1
+  python-libxml2-2.7.7-1
 
 Build requirements:
 (besides corresponding devel packages)
-  autoconf2.5-2.63-10
-  automake1.10-1.10.2-10
-  binutils-2.19.51-1
-  cygport-0.9.10-1
+  autoconf2.5-2.65-1
+  automake1.10-1.10.3-1
+  binutils-2.20.51-1
+  cygport-0.9.83-1
   gawk-3.1.7-1
   gcc4-core-4.3.4-3
   make-3.81-2
-  libtool-2.2.7a-14
+  libtool-2.2.7a-15
   pkg-config-0.23b-10
-  sed-4.1.5-2
+  sed-4.2.1-1
 
 Canonical homepage:
   http://xmlsoft.org/
@@ -55,6 +55,9 @@ This will create:
 -------------------------------------------
 
 Port Notes:
+
+----- version 1.1.26-2 -----
+Rebuilt bindings for Python 2.6.
 
 ----- version 1.1.26-1 -----
 Version bump.

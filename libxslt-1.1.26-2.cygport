@@ -11,8 +11,8 @@ PATCH_URI="
 
 PKG_NAMES="${PN} ${PN}-devel ${PN}-doc python-${PN}"
 PKG_HINTS="setup devel doc python"
-libxslt_CONTENTS="--exclude=*-config* usr/bin/ usr/share/doc/Cygwin \
-                  usr/share/doc/${PN}/[A-Z]* usr/share/man/"
+libxslt_CONTENTS="--exclude=*-config* --exclude=examples --exclude=html
+                  --exclude=python-${PN} usr/bin/ usr/share/doc/ usr/share/man/"
 libxslt_devel_CONTENTS="--exclude=python* usr/bin/*-config usr/include/ usr/lib/ \
                         usr/share/aclocal/"
 libxslt_doc_CONTENTS="usr/share/doc/${PN}/html/"
