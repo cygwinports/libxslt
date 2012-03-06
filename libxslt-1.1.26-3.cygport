@@ -6,7 +6,8 @@ SRC_URI="ftp://xmlsoft.org/libxml2/${P}.tar.gz"
 PATCH_URI="
 	mirror://portage/dev-libs/${PN}/files/libxslt.m4-${PN}-1.1.26.patch
 	mirror://portage/dev-libs/${PN}/files/${PN}-1.1.23-parallel-install.patch
-	1.1.26-no-undefined.patch
+	mirror://portage/dev-libs/${PN}/files/${PN}-1.1.26-undefined.patch
+	mirror://portage/dev-libs/${PN}/files/${PN}-1.1.26-pattern-out-of-bounds-read.patch
 "
 
 PKG_NAMES="${PN} ${PN}-devel ${PN}-doc python-${PN}"
@@ -38,3 +39,5 @@ src_install() {
 
 	mv ${D}/usr/share/doc/libxslt-python-${PV} ${D}/usr/share/doc/python-libxslt
 }
+
+KEEP_LA_FILES="shared"
