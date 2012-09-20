@@ -1,0 +1,63 @@
+inherit python
+
+NAME="libxslt"
+VERSION=1.1.26
+RELEASE=4
+CATEGORY="Libs"
+SUMMARY="GNOME XSLT library"
+DESCRIPTION="Libxslt is the XSLT C library developed for the Gnome project.
+XSLT itself is a an XML language to define transformation for XML. Libxslt is
+based on libxml2 the XML C library developed for the Gnome project. It also
+implements most of the EXSLT set of processor-portable extensions functions
+and some of Saxon's evaluate and expressions extensions."
+HOMEPAGE="http://xmlsoft.org/XSLT/"
+SRC_URI="ftp://xmlsoft.org/libxml2/${NAME}-${VERSION}.tar.gz"
+PATCH_URI="
+	mirror://portage/dev-libs/${PN}/files/libxslt.m4-${PN}-1.1.26.patch
+	mirror://portage/dev-libs/${PN}/files/${PN}-1.1.23-parallel-install.patch
+	mirror://portage/dev-libs/${PN}/files/${PN}-1.1.26-undefined.patch
+	mirror://portage/dev-libs/${PN}/files/${PN}-1.1.26-pattern-out-of-bounds-read.patch
+	mirror://portage/dev-libs/${PN}/files/${PN}-1.1.26-id-generation.patch
+	mirror://portage/dev-libs/${PN}/files/${PN}-1.1.26-pattern-out-of-bounds-read.patch
+	mirror://portage/dev-libs/${PN}/files/${PN}-1.1.26-node-type-1.patch
+	mirror://portage/dev-libs/${PN}/files/${PN}-1.1.26-node-type-2.patch
+	mirror://portage/dev-libs/${PN}/files/${PN}-1.1.26-node-type-3.patch
+	mirror://portage/dev-libs/${PN}/files/${PN}-1.1.26-pattern-compile-crash.patch
+	mirror://portage/dev-libs/${PN}/files/${PN}-1.1.26-generate-id-crash.patch
+	mirror://portage/dev-libs/${PN}/files/${PN}-1.1.26-posix-comparison.patch
+"
+
+PKG_NAMES="${PN} ${PN}-devel ${PN}-doc python-${PN}"
+libxslt_SUMMARY="${SUMMARY} (runtime)"
+libxslt_CONTENTS="--exclude=*-config* --exclude=examples --exclude=html
+                  --exclude=python-${PN} usr/bin/ usr/share/doc/ usr/share/man/"
+libxslt_devel_SUMMARY="${SUMMARY} (development)"
+libxslt_devel_CONTENTS="--exclude=python* usr/bin/*-config usr/include/ usr/lib/ \
+                        usr/share/aclocal/"
+libxslt_doc_SUMMARY="${SUMMARY} (API documentation)"
+libxslt_doc_CONTENTS="usr/share/doc/libxslt/html/"
+python_libxslt_SUMMARY="${SUMMARY} (Python bindings)"
+python_libxslt_CONTENTS="${PYTHON_SITELIB#/} usr/share/doc/python-libxslt/"
+
+DIFF_EXCLUDES='libxslt-export.c libxslt-py.* libxsltclass.* *xsltconfig.h'
+
+CYGCONF_ARGS="
+	--with-crypto
+	--with-debugger
+	--with-html-dir=/usr/share/doc/${NAME}
+	--with-html-subdir=html
+	--with-python
+"
+
+src_install() {
+	cd ${B}
+	cyginstall
+
+	mv ${D}${PYTHON_SITELIB}/${PN/lib/cyg}mod.dll ${D}${PYTHON_SITELIB}/${PN}mod.dll
+	sed -i -e "s:${PN/lib/cyg}mod:${PN}mod:g" ${D}${PYTHON_SITELIB}/${PN}mod.la
+	python_optimize
+
+	mv ${D}/usr/share/doc/libxslt-python-${PV} ${D}/usr/share/doc/python-libxslt
+}
+
+KEEP_LA_FILES="shared"
