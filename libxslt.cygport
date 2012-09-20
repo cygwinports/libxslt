@@ -16,7 +16,6 @@ PATCH_URI="
 	mirror://portage/dev-libs/${PN}/files/libxslt.m4-${PN}-1.1.26.patch
 	mirror://portage/dev-libs/${PN}/files/${PN}-1.1.23-parallel-install.patch
 	mirror://portage/dev-libs/${PN}/files/${PN}-1.1.26-undefined.patch
-	mirror://portage/dev-libs/${PN}/files/${PN}-1.1.26-pattern-out-of-bounds-read.patch
 	mirror://portage/dev-libs/${PN}/files/${PN}-1.1.26-id-generation.patch
 	mirror://portage/dev-libs/${PN}/files/${PN}-1.1.26-pattern-out-of-bounds-read.patch
 	mirror://portage/dev-libs/${PN}/files/${PN}-1.1.26-node-type-1.patch
@@ -36,6 +35,7 @@ libxslt_devel_CONTENTS="--exclude=python* usr/bin/*-config usr/include/ usr/lib/
                         usr/share/aclocal/"
 libxslt_doc_SUMMARY="${SUMMARY} (API documentation)"
 libxslt_doc_CONTENTS="usr/share/doc/libxslt/html/"
+python_libxslt_CATEGORY="Python"
 python_libxslt_SUMMARY="${SUMMARY} (Python bindings)"
 python_libxslt_CONTENTS="${PYTHON_SITELIB#/} usr/share/doc/python-libxslt/"
 
