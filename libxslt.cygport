@@ -1,8 +1,8 @@
 inherit python
 
 NAME="libxslt"
-VERSION=1.1.26
-RELEASE=4
+VERSION=1.1.27
+RELEASE=1
 CATEGORY="Libs"
 SUMMARY="GNOME XSLT library"
 DESCRIPTION="Libxslt is the XSLT C library developed for the Gnome project.
@@ -14,16 +14,6 @@ HOMEPAGE="http://xmlsoft.org/XSLT/"
 SRC_URI="ftp://xmlsoft.org/libxml2/${NAME}-${VERSION}.tar.gz"
 PATCH_URI="
 	mirror://portage/dev-libs/${PN}/files/libxslt.m4-${PN}-1.1.26.patch
-	mirror://portage/dev-libs/${PN}/files/${PN}-1.1.23-parallel-install.patch
-	mirror://portage/dev-libs/${PN}/files/${PN}-1.1.26-undefined.patch
-	mirror://portage/dev-libs/${PN}/files/${PN}-1.1.26-id-generation.patch
-	mirror://portage/dev-libs/${PN}/files/${PN}-1.1.26-pattern-out-of-bounds-read.patch
-	mirror://portage/dev-libs/${PN}/files/${PN}-1.1.26-node-type-1.patch
-	mirror://portage/dev-libs/${PN}/files/${PN}-1.1.26-node-type-2.patch
-	mirror://portage/dev-libs/${PN}/files/${PN}-1.1.26-node-type-3.patch
-	mirror://portage/dev-libs/${PN}/files/${PN}-1.1.26-pattern-compile-crash.patch
-	mirror://portage/dev-libs/${PN}/files/${PN}-1.1.26-generate-id-crash.patch
-	mirror://portage/dev-libs/${PN}/files/${PN}-1.1.26-posix-comparison.patch
 "
 
 PKG_NAMES="${PN} ${PN}-devel ${PN}-doc python-${PN}"
