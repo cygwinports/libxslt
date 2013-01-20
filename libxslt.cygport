@@ -2,7 +2,7 @@ inherit python
 
 NAME="libxslt"
 VERSION=1.1.27
-RELEASE=1
+RELEASE=2
 CATEGORY="Libs"
 SUMMARY="GNOME XSLT library"
 DESCRIPTION="Libxslt is the XSLT C library developed for the Gnome project.
