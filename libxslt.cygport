@@ -49,5 +49,3 @@ src_install() {
 
 	mv ${D}/usr/share/doc/libxslt-python-${PV} ${D}/usr/share/doc/python-libxslt
 }
-
-KEEP_LA_FILES="shared"
