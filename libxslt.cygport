@@ -1,8 +1,8 @@
 inherit python
 
 NAME="libxslt"
-VERSION=1.1.27
-RELEASE=2
+VERSION=1.1.28
+RELEASE=1
 CATEGORY="Libs"
 SUMMARY="GNOME XSLT library"
 DESCRIPTION="Libxslt is the XSLT C library developed for the Gnome project.
@@ -13,13 +13,14 @@ and some of Saxon's evaluate and expressions extensions."
 HOMEPAGE="http://xmlsoft.org/XSLT/"
 SRC_URI="ftp://xmlsoft.org/libxml2/${NAME}-${VERSION}.tar.gz"
 PATCH_URI="
-	mirror://portage/dev-libs/${PN}/files/libxslt.m4-${PN}-1.1.26.patch
+	http://pkgs.fedoraproject.org/cgit/libxslt.git/plain/libxslt-1.1.26-utf8-docs.patch
+	mirror://portage/dev-libs/libxslt/files/libxslt.m4-libxslt-1.1.26.patch
 "
 
-PKG_NAMES="${PN} ${PN}-devel ${PN}-doc python-${PN}"
+PKG_NAMES="${NAME} ${NAME}-devel ${NAME}-doc python-${NAME}"
 libxslt_SUMMARY="${SUMMARY} (runtime)"
 libxslt_CONTENTS="--exclude=*-config* --exclude=examples --exclude=html
-                  --exclude=python-${PN} usr/bin/ usr/share/doc/ usr/share/man/"
+                  --exclude=python-${NAME} usr/bin/ usr/share/doc/ usr/share/man/"
 libxslt_devel_SUMMARY="${SUMMARY} (development)"
 libxslt_devel_CONTENTS="--exclude=python* usr/bin/*-config usr/include/ usr/lib/ \
                         usr/share/aclocal/"
@@ -43,8 +44,8 @@ src_install() {
 	cd ${B}
 	cyginstall
 
-	mv ${D}${PYTHON_SITELIB}/${PN/lib/cyg}mod.dll ${D}${PYTHON_SITELIB}/${PN}mod.dll
-	sed -i -e "s:${PN/lib/cyg}mod:${PN}mod:g" ${D}${PYTHON_SITELIB}/${PN}mod.la
+	mv ${D}${PYTHON_SITELIB}/${NAME/lib/cyg}mod.dll ${D}${PYTHON_SITELIB}/${NAME}mod.dll
+	sed -i -e "s:${NAME/lib/cyg}mod:${NAME}mod:g" ${D}${PYTHON_SITELIB}/${NAME}mod.la
 	python_optimize
 
 	mv ${D}/usr/share/doc/libxslt-python-${PV} ${D}/usr/share/doc/python-libxslt
