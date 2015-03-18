@@ -2,7 +2,7 @@ inherit python
 
 NAME="libxslt"
 VERSION=1.1.28
-RELEASE=1
+RELEASE=2
 CATEGORY="Libs"
 SUMMARY="GNOME XSLT library"
 DESCRIPTION="Libxslt is the XSLT C library developed for the Gnome project.
@@ -15,6 +15,7 @@ SRC_URI="ftp://xmlsoft.org/libxml2/${NAME}-${VERSION}.tar.gz"
 PATCH_URI="
 	http://pkgs.fedoraproject.org/cgit/libxslt.git/plain/libxslt-1.1.26-utf8-docs.patch
 	mirror://portage/dev-libs/libxslt/files/libxslt.m4-libxslt-1.1.26.patch
+	1.1.28-cygwin-libtool245.patch
 "
 
 PKG_NAMES="${NAME} ${NAME}-devel ${NAME}-doc python-${NAME}"
