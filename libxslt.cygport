@@ -1,7 +1,7 @@
-inherit python
+inherit python2
 
 NAME="libxslt"
-VERSION=1.1.29
+VERSION=1.1.32
 RELEASE=1
 CATEGORY="Libs"
 SUMMARY="GNOME XSLT library"
@@ -13,12 +13,11 @@ and some of Saxon's evaluate and expressions extensions."
 HOMEPAGE="http://xmlsoft.org/XSLT/"
 SRC_URI="ftp://xmlsoft.org/libxml2/${NAME}-${VERSION}.tar.gz"
 PATCH_URI="
-	http://pkgs.fedoraproject.org/cgit/libxslt.git/plain/libxslt-1.1.26-utf8-docs.patch
+	https://src.fedoraproject.org/cgit/rpms/libxslt.git/plain/libxslt-1.1.26-utf8-docs.patch
 	mirror://portage/dev-libs/libxslt/files/libxslt.m4-libxslt-1.1.26.patch
-	1.1.28-cygwin-libtool245.patch
 "
 
-PKG_NAMES="${NAME} ${NAME}-devel ${NAME}-doc python-${NAME}"
+PKG_NAMES="${NAME} ${NAME}-devel ${NAME}-doc python2-${NAME}"
 libxslt_SUMMARY="${SUMMARY} (runtime)"
 libxslt_CONTENTS="--exclude=*-config* --exclude=examples --exclude=html
                   --exclude=python-${NAME} usr/bin/ usr/share/doc/ usr/share/man/"
@@ -27,9 +26,10 @@ libxslt_devel_CONTENTS="--exclude=python* usr/bin/*-config usr/include/ usr/lib/
                         usr/share/aclocal/"
 libxslt_doc_SUMMARY="${SUMMARY} (API documentation)"
 libxslt_doc_CONTENTS="usr/share/doc/libxslt/html/"
-python_libxslt_CATEGORY="Python"
-python_libxslt_SUMMARY="${SUMMARY} (Python bindings)"
-python_libxslt_CONTENTS="${PYTHON_SITELIB#/} usr/share/doc/python-libxslt/"
+python2_libxslt_CATEGORY="Python"
+python2_libxslt_SUMMARY="${SUMMARY} (Python bindings)"
+python2_libxslt_OBSOLETES="python-libxslt"
+python2_libxslt_CONTENTS="${PYTHON2_SITELIB#/} usr/share/doc/python-libxslt/"
 
 DIFF_EXCLUDES='libxslt-export.c libxslt-py.* libxsltclass.* *xsltconfig.h'
 
